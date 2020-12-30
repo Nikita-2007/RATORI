@@ -4,16 +4,7 @@
     <option name="SCOPE_TYPE" value="3" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ec8218e2-5705-41ac-88dd-a59d13c12975" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/modules/Game.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/modules/Menu.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/modules/Unit.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/RATORI.py" beforeDir="false" afterPath="$PROJECT_DIR$/RATORI.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/images/exit.png" beforeDir="false" afterPath="$PROJECT_DIR$/images/exit.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/images/icon.ico" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/Main.py" beforeDir="false" afterPath="$PROJECT_DIR$/modules/Main.py" afterDir="false" />
-    </list>
+    <list default="true" id="ec8218e2-5705-41ac-88dd-a59d13c12975" name="Default Changelist" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -38,7 +29,7 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../HardChildhood/Python/Lessons/Команды.py" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
   </component>
   <component name="RunManager">
