@@ -13,7 +13,6 @@ class Unit(object):
 
     #Отрисовка юнита
     def draw(self, g):
-        self.rect.x += 1
         g.blit(self.image, self.rect)
         if self.rect.x == 300:
             pg.mixer.Sound.play(self.sound)
