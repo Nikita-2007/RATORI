@@ -1,14 +1,21 @@
 import pygame as pg
 
 class Button(object):
+    pg.font.init()
+    _font_ = pg.font.SysFont('cambria', 30)
 
-    _image_ = pg.image.load("images\Start.png")
+    def __init__(self, posX, posY, name):
+        '''КНОПКА'''
+        self.name = name
+        self.active = True
+        self.focus = False
+        self.pressed = False
+        self.rect = pg.Rect(posX, posY, 300, 100)
 
-    #BUTTODN
-    def __init__(self):
-        self.image = self._image_
-        self.rect = self.image.get_rect()
-
-    #Отрисовка кнопок
     def draw(self, g):
-        g.blit(self.image, self.rect)
+        '''Отрисовка кнопок'''
+        pg.draw.rect(g, 'black', self.rect, 15)
+        self.text_button = self._font_.render(self.name, True, 'red')
+        self.text_rect = self.text_button.get_rect()
+        self.text_rect.center = self.rect.center
+        g.blit(self.text_button, self.text_rect)

@@ -6,7 +6,17 @@
   <component name="ChangeListManager">
     <list default="true" id="ec8218e2-5705-41ac-88dd-a59d13c12975" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/Button.py" beforeDir="false" afterPath="$PROJECT_DIR$/modules/Button.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/Menu.py" beforeDir="false" afterPath="$PROJECT_DIR$/modules/Menu.py" afterDir="false" />
     </list>
+    <disabled>
+      <disabled_changelists>
+        <list default="true" id="ec8218e2-5705-41ac-88dd-a59d13c12975" name="Default Changelist" comment="">
+          <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+        </list>
+      </disabled_changelists>
+      <disabled_trackers />
+    </disabled>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -36,7 +46,7 @@
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="settings.editor.selected.configurable" value="vcs.Git" />
   </component>
-  <component name="RunManager" selected="Python.video">
+  <component name="RunManager" selected="Python.RATORI">
     <configuration name="RATORI" type="PythonConfigurationType" factoryName="Python" nameIsGenerated="true">
       <module name="RATORI" />
       <option name="INTERPRETER_OPTIONS" value="" />
