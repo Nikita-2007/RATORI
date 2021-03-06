@@ -3,12 +3,11 @@
   <component name="AnalysisUIOptions">
     <option name="SCOPE_TYPE" value="3" />
   </component>
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
   <component name="ChangeListManager">
-    <list default="true" id="ec8218e2-5705-41ac-88dd-a59d13c12975" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/Button.py" beforeDir="false" afterPath="$PROJECT_DIR$/modules/Button.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/Menu.py" beforeDir="false" afterPath="$PROJECT_DIR$/modules/Menu.py" afterDir="false" />
-    </list>
+    <list default="true" id="ec8218e2-5705-41ac-88dd-a59d13c12975" name="Default Changelist" comment="" />
     <disabled>
       <disabled_changelists>
         <list default="true" id="ec8218e2-5705-41ac-88dd-a59d13c12975" name="Default Changelist" comment="">
@@ -43,8 +42,9 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
-    <property name="settings.editor.selected.configurable" value="vcs.Git" />
+    <property name="last_opened_file_path" value="$USER_HOME$/AppData/Local/Programs/Python" />
+    <property name="restartRequiresConfirmation" value="false" />
+    <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
   </component>
   <component name="RunManager" selected="Python.RATORI">
     <configuration name="RATORI" type="PythonConfigurationType" factoryName="Python" nameIsGenerated="true">

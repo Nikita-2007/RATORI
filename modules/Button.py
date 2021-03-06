@@ -14,8 +14,8 @@ class Button(object):
 
     def draw(self, g):
         '''Отрисовка кнопок'''
-        pg.draw.rect(g, 'black', self.rect, 15)
-        self.text_button = self._font_.render(self.name, True, 'red')
+        pg.draw.rect(g, 'blue', self.rect)
+        self.text_button = self._font_.render(self.name, True, 'lightblue')
         self.text_rect = self.text_button.get_rect()
         self.text_rect.center = self.rect.center
         g.blit(self.text_button, self.text_rect)

@@ -9,8 +9,14 @@ class Menu(object):
         '''MENU'''
         self.list_button = []
         for i in range (8):
-            self.button = Button(50, i*30, self.button_name[i])
-            self.list_button.add(self.button)
+            posY = 100
+            posX = 330
+            temp = i
+            if i > 3:
+                posX = 650
+                temp = temp - 4
+            self.button = Button(posX, posY*temp*1.2+100, self.button_name[i])
+            self.list_button.append(self.button)
 
     def update(self, e):
         '''Обновление'''
@@ -18,7 +24,6 @@ class Menu(object):
 
     def draw(self, g):
         '''Отрисовка меню'''
-        g.fill('blue')
-        for i in range(8):
-            #button = self.list_button[i]
-            self.button.draw(g)
+        g.fill('lightgreen')
+        for button in self.list_button:
+            button.draw(g)
