@@ -2,7 +2,7 @@ import pygame as pg
 
 class Button(object):
     pg.font.init()
-    _font_ = pg.font.SysFont('cambria', 30)
+    _font_ = pg.font.SysFont('Agency FB', 40)
 
     def __init__(self, posX, posY, name):
         '''КНОПКА'''
@@ -14,6 +14,7 @@ class Button(object):
 
     def draw(self, g):
         '''Отрисовка кнопок'''
+        pg.draw.rect(g, 'darkblue', self.rect, 10)
         pg.draw.rect(g, 'blue', self.rect)
         self.text_button = self._font_.render(self.name, True, 'lightblue')
         self.text_rect = self.text_button.get_rect()
