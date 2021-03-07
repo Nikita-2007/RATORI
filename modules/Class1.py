@@ -27,3 +27,10 @@ class Class1(object):
         # pygame.draw.arc(g, "red", (50, 200, 100, 150), 3.14, 6.28, 3)
         pygame.draw.lines(g, 'blue', False, [(100, 100), (200, 200), (100, 200)], 1)
         # pygame.draw.polygon(g, "blue", ((100, 200), (350, 400), (500, 600), (600, 500)), 1)
+    #Проверка колизии
+    def TEST(self, pos):
+        if (pos[0] > self.rect.x and pos[0] < self.rect.x + self.rect.width
+                and pos[1] > self.rect.y and pos[1] < self.rect.y + self.rect.height):
+            return True
+        else:
+            return False
