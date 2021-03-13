@@ -5,23 +5,26 @@ class Menu(object):
 
     button_name = ['Start', 'LoadGame', 'Option', 'Return', 'Language ', 'Respawn', 'Exit to Mneu', 'Exit']
 
-    def __init__(self):
+    def __init__(self, size):
         '''MENU'''
+        self.size = size
         self.list_button = []
         for i in range (8):
-            posY = 100
-            posX = 330
-            temp = i
-            if i > 3:
-                posX = 650
-                temp = temp - 4
-            self.button = Button(posX, posY*temp*1.2+100, self.button_name[i])
+            btn_pos = self.position(i)
+            self.button = Button(btn_pos, self.button_name[i])
             self.list_button.append(self.button)
         self.button_action = None
         self.list_button[6].active = False
 
     def update(self, e):
         '''Обновление'''
+        size = pg.display.get_window_size()
+        if self.size != size:
+            self.size = size
+            for i in range(8):
+                btn_pos = self.position(i)
+                self.list_button[i].rect.x = btn_pos[0]
+                self.list_button[i].rect.y = btn_pos[1]
         if e.type == pg.MOUSEMOTION:
             self.button_action = None
         pos = pg.mouse.get_pos()
@@ -45,4 +48,15 @@ class Menu(object):
             button.draw(g)
 
     def functions(self, button_name):
-        pass
+        if button_name == 'Exit':
+            pg.quit()
+            quit()
+
+    def position(self, i):
+        if i < 4:
+            posX = self.size[0]//2-320
+            posY = self.size[1]//2 + i * 120 - 250
+        else:
+            posX = self.size[0]//2
+            posY = self.size[1]//2 + i * 120 - 730
+        return posX, posY

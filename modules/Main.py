@@ -8,8 +8,7 @@ class Main(object):
     def __init__(self):
         self.local_version = 1
         self.flag = pg.RESIZABLE
-        self.width = 1280
-        self.hiegth = 720
+        self.size = self.width, self.hiegth = 1280, 720
         self.fps = 60
         self.menu_state = True
 
@@ -20,7 +19,7 @@ class Main(object):
 
     #Новая игра
     def game_start(self):
-        self.menu = Menu()
+        self.menu = Menu(self.size)
         self.game = Game()
         self.game_state = True
         self.game_cycle()
