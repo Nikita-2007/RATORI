@@ -10,7 +10,6 @@ class Main(object):
         self.flag = pg.RESIZABLE
         self.size = self.width, self.hiegth = 1280, 720
         self.fps = 60
-        self.menu_state = True
 
         pg.display.set_mode((self.width, self.hiegth), self.flag)
         icon = pg.image.load("images\exit.png")
@@ -20,7 +19,7 @@ class Main(object):
     #Новая игра
     def game_start(self):
         self.menu = Menu(self.size)
-        self.game = Game()
+        self.game = Game(self.size)
         self.game_state = True
         self.game_cycle()
 
@@ -42,17 +41,14 @@ class Main(object):
                     else:
                         self.flag = pg.FULLSCREEN
                     pg.display.set_mode((self.width, self.hiegth), self.flag)
-                #Меню/игра
-                if e.type == pg.KEYUP and e.key == pg.K_ESCAPE:
-                    self.menu_state = not self.menu_state
 
-            if self.menu_state == True:
+            if self.menu.menu_state == True:
                 self.menu.update(e)
             else:
                 self.game.update(e)
 
             #Обновление меню
-            if self.menu_state:
+            if self.menu.menu_state:
                 self.menu.draw(g)
             #Обновление игры
             else:
