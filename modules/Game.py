@@ -30,7 +30,8 @@ class Game(object):
 
     def draw(self, g):
         """Отрисовка"""
-        g.fill('red')
+        self.interface.draw(g)
+        self.ground.draw(g)
         self.unit.draw(g)
 
     def position(self, size):
