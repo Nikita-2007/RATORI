@@ -1,16 +1,18 @@
 import sys
 from random import randint
 import pygame as pg
+from modules.MiniMap import MiniMap
 
 class Interface(object):
 
-    def __init__(self):
+    def __init__(self, size):
         """Конструктор"""
+        self.minimap = MiniMap(size)
 
-    def update(self):
+    def update(self, size):
         """Обновление"""
-        pass
+        self.minimap.update(size)
 
     def draw(self, g):
         """Отрисовка"""
-        pg.draw.rect(g, 'pink', (0, 480, 720, 426))
+        self.minimap.draw(g)
