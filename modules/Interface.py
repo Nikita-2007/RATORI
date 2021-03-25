@@ -1,6 +1,3 @@
-import sys
-from random import randint
-import pygame as pg
 from modules.MiniMap import MiniMap
 
 class Interface(object):

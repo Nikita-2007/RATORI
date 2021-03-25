@@ -1,7 +1,4 @@
-import sys
-from random import randint
 import pygame as pg
-
 
 class MiniMap(object):
     def __init__(self, size):
