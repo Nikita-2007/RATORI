@@ -50,6 +50,15 @@
     <property name="restartRequiresConfirmation" value="false" />
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
   </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\Documents\Programs\RATORI\modules\unit" />
+      <recent name="D:\Documents\Programs\RATORI\modules\interface" />
+      <recent name="D:\Documents\Programs\RATORI\modules\Ground" />
+      <recent name="D:\Documents\Programs\RATORI\modules\Interface" />
+      <recent name="D:\Documents\Programs\RATORI\modules\menu" />
+    </key>
+  </component>
   <component name="RunManager">
     <configuration name="RATORI" type="PythonConfigurationType" factoryName="Python" activateToolWindowBeforeRun="false" nameIsGenerated="true">
       <module name="RATORI" />
