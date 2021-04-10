@@ -12,8 +12,8 @@ class Ground(object):
     def draw(self, g):
         """Отрисовка"""
         g.fill('darkgreen')
-        for y in range(10):
-            for x in range(25):
+        for y in range(15):
+            for x in range(27):
                 key = self.terrain.map[y][x]
                 tile = self.terrain.tile_atlas[key]
                 g.blit(tile, (x*48, y*48))

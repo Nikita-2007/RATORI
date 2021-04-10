@@ -10,13 +10,47 @@ class Hero(object):
         self.rect = pg.Rect(0, 0, self.rate, self.rate)
         self.tile_atlas = []
         self.tile_atlas = self.filling()
+        self.row = 0
+        self.col = 0
+        self.step = 0
+        self.speed = 1
+        self.image = self.tile_atlas[self.row][self.col]
+
+    def update(self, turn):
+        """Обновление"""
+        self.turn = turn
+        if self.turn == 'stop':
+            self.image = self.tile_atlas[0][0]
+        else:
+            if self.turn == 'right_down':
+                self.col = 1
+            elif self.turn == 'left_down':
+                self.col = 7
+            elif self.turn == 'left_up':
+                self.col = 5
+            elif self.turn == 'right_up':
+                self.col = 3
+            elif self.turn == 'right':
+                self.col = 2
+            elif self.turn == 'left':
+                self.col = 6
+            elif self.turn == 'down':
+                self.col = 0
+            elif self.turn == 'up':
+                self.col = 4
+        self.select()
 
     def draw(self, g):
-        rect = self.rect
-        g.blit(self.tile_atlas[0][0], rect)
-        g.blit(self.tile_atlas[4][0], rect)
-        g.blit(self.tile_atlas[0][4], rect)
-        g.blit(self.tile_atlas[4][4], rect)
+        self.image = self.tile_atlas[self.row][self.col]
+        g.blit(self.image, self.rect)
+
+    def select(self):
+        if self.step == 7:
+            self.row += 1
+            self.step = 0
+        self.step += self.speed
+        if self.row >= 4:
+            self.row = 1
 
     def filling(self):
         """Заполняет атлас"""
