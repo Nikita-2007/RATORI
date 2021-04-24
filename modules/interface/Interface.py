@@ -8,7 +8,7 @@ class Interface(object):
 
     def update(self, size):
         """Обновление"""
-        self.minimap.update(size)
+        self.minimap.update()
 
     def draw(self, g):
         """Отрисовка"""
