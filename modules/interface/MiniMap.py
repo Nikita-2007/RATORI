@@ -1,7 +1,6 @@
 import pygame as pg
 from modules.ground.Terrain import Terrain
 
-
 class MiniMap(object):
     def __init__(self, size):
         """Конструктор"""
@@ -12,6 +11,7 @@ class MiniMap(object):
         self.rate = self.size[0] // (self.count_x * 3)
         self.rect = self.position()
         self.hero = self.pos_hero(self.terrain.start_point)
+        self.visio = pg.Rect(self.visio_pos())
 
     def update(self):
         """Обновление"""
@@ -20,7 +20,7 @@ class MiniMap(object):
             self.size = size
             self.rate = self.size[0] // (self.count_x * 3)
             self.rect = self.position()
-        self.hero = self.pos_hero(self.hero)
+        #self.hero = self.pos_hero(hero)
 
 
     def draw(self, g):
@@ -33,6 +33,7 @@ class MiniMap(object):
                 g.blit(tile, (self.rate * x + self.rect[0], self.rate* y + self.rect[1], self.rate, self.rate))
         pg.draw.rect(g, 'pink', self.rect, 5)
         pg.draw.circle(g, 'red', self.hero, 5)
+        pg.draw.rect(g, 'green', self.visio, 1)
 
     def position(self):
         x1 = 3
@@ -43,6 +44,13 @@ class MiniMap(object):
 
     def pos_hero(self, hero):
         '''Расчёт позиции героя'''
-        x = hero[0] * (self.rate // (self.count_x * 48))
-        y = 200
+        x = hero[0] * self.rate / self.terrain.rate
+        y = hero[1] * self.rate / self.terrain.rate + self.rect[1]
         return x, y
+
+    def visio_pos(self):
+        w = self.rate * (self.size[0] / self.count_x)
+        h = self.rate * (self.size[1] / self.count_x)
+        x = self.hero[0] - (self.rate * (self.size[0] / self.count_x)) + (0.5 * w)
+        y = self.hero[1] - (self.rate * (self.size[1] / self.count_x)) + (0.5 * h)
+        return x, y, w, h
