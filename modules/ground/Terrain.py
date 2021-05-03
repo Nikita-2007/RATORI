@@ -1,6 +1,7 @@
 import pygame as pg
 from modules.ground.map import map as _map_
 
+
 class Terrain(object):
     _atlas_ = pg.image.load("images\sprite.bmp")
     _atlas_.set_colorkey((255, 255, 255))

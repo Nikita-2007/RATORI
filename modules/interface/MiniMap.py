@@ -1,6 +1,7 @@
 import pygame as pg
 from modules.ground.Terrain import Terrain
 
+
 class MiniMap(object):
     def __init__(self, size):
         """Конструктор"""
