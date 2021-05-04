@@ -53,12 +53,12 @@ class Ground(object):
         x_right = x_left + self.size[0]
         y_top = self.point_y - self.size[0] // 2
         y_bottom = y_top + self.size[1]
-        for y in range(y_top // rate, y_bottom // rate):
-            for x in range(x_left // rate, x_right // rate):
+        for y in range(y_top // rate, y_bottom // rate + 1):
+            for x in range(x_left // rate, x_right // rate + 1):
                 key = self.terrain.map[y][x]
                 tile = self.terrain.tile_atlas[key]
                 self.surface.blit(tile, (x * rate - x_left, y * rate - y_top, rate, rate))
                 # коды tileоф
                 text = self.font.render((str(y) + '-' + str(x)), True, 'red')
                 text_rect = text.get_rect()
-                self.surface.blit(text, (x * rate - x_left + 4, y * rate - y_top + 16), text_rect)
+                #self.surface.blit(text, (x * rate - x_left + 4, y * rate - y_top + 16), text_rect)

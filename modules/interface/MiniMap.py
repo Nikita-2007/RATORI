@@ -7,6 +7,7 @@ class MiniMap(object):
         """Конструктор"""
         self.terrain = Terrain()
         self.count_x = len(self.terrain.map[0])
+
         self.count_y = len(self.terrain.map)
         self.size = size
         self.rate = self.size[0] // (self.count_x * 3)
@@ -14,15 +15,15 @@ class MiniMap(object):
         self.hero = self.pos_hero(self.terrain.start_point)
         self.visio = pg.Rect(self.visio_pos())
 
-    def update(self):
+    def update(self, hero):
         """Обновление"""
         size = pg.display.get_window_size()
         if self.size != size:
             self.size = size
             self.rate = self.size[0] // (self.count_x * 3)
             self.rect = self.position()
-        #self.hero = self.pos_hero(hero)
-
+        self.hero = self.pos_hero(hero)
+        self.visio = pg.Rect(self.visio_pos())
 
     def draw(self, g):
         """Отрисовка"""
@@ -31,7 +32,7 @@ class MiniMap(object):
                 key = self.terrain.map[y][x]
                 tile = self.terrain.tile_atlas[key]
                 tile = pg.transform.scale(tile, (self.rate, self.rate))
-                g.blit(tile, (self.rate * x + self.rect[0], self.rate* y + self.rect[1], self.rate, self.rate))
+                g.blit(tile, (self.rate * x + self.rect[0], self.rate * y + self.rect[1], self.rate, self.rate))
         pg.draw.rect(g, 'pink', self.rect, 5)
         pg.draw.circle(g, 'red', self.hero, 5)
         pg.draw.rect(g, 'green', self.visio, 1)
