@@ -9,9 +9,9 @@ class Game(object):
     def __init__(self, size):
         """Конструктор"""
         self.size = size
-        self.ground = Ground(size)
+        self.ground = Ground(self.size)
         self.hero = Hero(self.size)
-        self.interface = Interface(size)
+        self.interface = Interface(self.size)
         self.hero.rect.center = self.position(size)
         self.turn = 'stop'
 

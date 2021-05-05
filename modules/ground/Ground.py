@@ -10,14 +10,17 @@ class Ground(object):
         self.surface = pg.Surface(self.size)
         self.rect = self.surface.get_rect()
         self.point_x, self.point_y = self.terrain.start_point
+        self.max_x = len(self.terrain.map[0]) * self.terrain.rate
+        self.max_y = len(self.terrain.map) * self.terrain.rate
         # шрифт для кода
         pg.font.init()
         self.font = pg.font.SysFont('arial', 12, True)
 
     def update(self, size, turn):
         """Обновление"""
-        self.select()
-        scrol = 5
+        scrol_line = 6
+        scrol = round(scrol_line / 1.4)
+
         if turn == 'right_down':
             self.point_x += scrol
             self.point_y += scrol
@@ -31,13 +34,25 @@ class Ground(object):
             self.point_x += scrol
             self.point_y -= scrol
         elif turn == 'right':
-            self.point_x += scrol
+            self.point_x += scrol_line
         elif turn == 'left':
-            self.point_x -= scrol
+            self.point_x -= scrol_line
         elif turn == 'down':
-            self.point_y += scrol
+            self.point_y += scrol_line
         elif turn == 'up':
-            self.point_y -= scrol
+            self.point_y -= scrol_line
+
+        # Ограничение крайв
+        if self.point_x < size[0] // 2 + scrol_line:
+            self.point_x = size[0] // 2 + scrol_line
+        if self.point_x > self.max_x - size[0] // 2 - scrol_line:
+            self.point_x = \
+            self.max_x - size[0] // 2 - scrol_line
+        if self.point_y < size[1] // 2 + scrol_line:
+            self.point_y = size[1] // 2 + scrol_line
+        if self.point_y > self.max_y - size[1] // 2 - scrol_line:
+            self.point_y = self.max_y - size[1] // 2 - scrol_line
+        self.select()
 
 
     def draw(self, g):

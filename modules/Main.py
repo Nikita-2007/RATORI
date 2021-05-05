@@ -22,6 +22,7 @@ class Main(object):
         self.game = Game(self.size)
         self.game_state = True
         self.game_cycle()
+        
     #Игровой цикл
     def game_cycle(self):
         g = pg.display.get_surface()

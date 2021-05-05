@@ -7,7 +7,6 @@ class MiniMap(object):
         """Конструктор"""
         self.terrain = Terrain()
         self.count_x = len(self.terrain.map[0])
-
         self.count_y = len(self.terrain.map)
         self.size = size
         self.rate = self.size[0] // (self.count_x * 3)
