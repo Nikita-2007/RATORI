@@ -2,7 +2,7 @@ import pygame as pg
 from modules.menu.Button import Button
 class Menu(object):
 
-    button_name = ['Start', 'LoadGame', 'Option', 'Return', 'Language ', 'Respawn', 'Exit to Mneu', 'Выход']
+    button_name = ['Start', 'LoadGame', 'Option', 'Return', 'Language ', 'Respawn', 'Exit to Mneu', 'Exit']
 
     def __init__(self, size):
         '''MENU'''
