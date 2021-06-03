@@ -6,6 +6,7 @@ class Hero(object):
 
     def __init__(self, size):
         """Конструктор"""
+        pg.init()
         self.rate = self._rate_
         self.rect = pg.Rect(0, 0, self.rate, self.rate)
         self.tile_atlas = []
@@ -48,6 +49,7 @@ class Hero(object):
         if self.step == 7:
             self.row += 1
             self.step = 0
+            pg.mixer.Sound.play(pg.mixer.Sound("sounds\sound.wav"))
         self.step += self.speed
         if self.row >= 4:
             self.row = 1
