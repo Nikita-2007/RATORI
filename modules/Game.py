@@ -2,6 +2,7 @@ import pygame as pg
 from modules.ground.Ground import Ground
 from modules.interface.Interface import Interface
 from modules.unit.Hero import Hero
+from modules.unit.Enemy import Enemy
 
 
 class Game(object):
@@ -11,11 +12,12 @@ class Game(object):
         self.size = size
         self.ground = Ground(self.size)
         self.hero = Hero(self.size)
+        self.enemy = Enemy(self.size)
         self.interface = Interface(self.size)
         self.hero.rect.center = self.position(size)
         self.turn = 'stop'
 
-    def update(self, e):
+    def update(self, e, g):
         """Обновление"""
         size = pg.display.get_window_size()
         if self.size != size:
@@ -44,7 +46,8 @@ class Game(object):
         else:
             self.turn = 'stop'
 
-        self.ground.update(self.size, self.turn)
+        self.ground.update(self.size, self.turn, g)
+        self.enemy.update(self.size)
         self.hero.update(self.turn)
         hero = self.ground.point_x, self.ground.point_y
         self.interface.update(size, hero)
@@ -54,8 +57,10 @@ class Game(object):
         self.ground.draw(g)
         self.interface.draw(g)
         self.hero.draw(g)
+        self.enemy.draw(g)
 
     def position(self, size):
+        """Определение позиции"""
         x = size[0]//2
         y = size[1]//2
         return x, y

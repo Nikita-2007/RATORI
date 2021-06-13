@@ -2,20 +2,21 @@ import pygame as pg
 
 
 class Score(object):
-    """ Очки игры """
+    """Очки игры"""
 
-    def __init__(self):
+    def __init__(self, size):
         """ Очки """
-        score = 0
-        self.score = score
+        self.size = size
+        self.score = 0
         self.font = pg.font.Font(None, 36)
+        self.text = self.font.render(str(self.score), True, 'Red')
 
-    def update(self):
-        """ Обновление """
-        pass
+    def update(self, size):
+        """Обновление"""
+        size = pg.display.get_window_size()
+        if self.size != size:
+            self.size = size
 
     def draw(self, g):
-        """ Отрисовка """
-        text = self.font.render(str(self.score), True, 180, 0, 0)
-        g.blit(text, 100, 100)
-
+        """Отрисовка"""
+        g.blit(self.text, (self.size[0]-50, 50))

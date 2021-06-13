@@ -1,6 +1,9 @@
 import pygame as pg
 
+
 class Bullet(object):
+    """Пули"""
+
     def __init__(self, size):
         """Конструктор"""
         self.size = size

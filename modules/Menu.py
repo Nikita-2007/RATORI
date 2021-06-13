@@ -48,6 +48,7 @@ class Menu(object):
             button.draw(g)
 
     def functions(self, button_name):
+        """Нажатие клавишь"""
         if self.button_action != button_name:
             self.button_action = button_name
             if button_name == self.button_name[0]:
@@ -69,6 +70,7 @@ class Menu(object):
                 quit()
 
     def position(self, i):
+        """Определение позиции"""
         if i < 4:
             posX = self.size[0]//2-320
             posY = self.size[1]//2 + i * 120 - 250

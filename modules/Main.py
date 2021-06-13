@@ -4,7 +4,7 @@ from modules.Game import Game
 
 class Main(object):
 
-    #БАЗОВЫЙ ЗАПУСК
+    """Конструктор"""
     def __init__(self):
         self.local_version = 1
         self.flag = pg.RESIZABLE
@@ -16,14 +16,14 @@ class Main(object):
         pg.display.set_icon(icon)
         pg.display.set_caption("RATORI")
 
-    #Новая игра
+    """Новая игра"""
     def game_start(self):
         self.menu = Menu(self.size)
         self.game = Game(self.size)
         self.game_state = True
         self.game_cycle()
         
-    #Игровой цикл
+    """Игровой цикл"""
     def game_cycle(self):
         g = pg.display.get_surface()
         while self.game_state:
@@ -43,7 +43,7 @@ class Main(object):
             if self.menu.menu_state == True:
                 self.menu.update(e)
             else:
-                self.game.update(e)
+                self.game.update(e, g)
 
             #Обновление меню
             if self.menu.menu_state:

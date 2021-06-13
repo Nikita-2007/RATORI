@@ -42,10 +42,12 @@ class Hero(object):
         self.select()
 
     def draw(self, g):
+        """Отрисовка"""
         self.image = self.tile_atlas[self.row][self.col]
         g.blit(self.image, self.rect)
 
     def select(self):
+        """Заполнение"""
         if self.step == 7:
             self.row += 1
             self.step = 0

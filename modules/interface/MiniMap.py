@@ -37,6 +37,7 @@ class MiniMap(object):
         pg.draw.rect(g, 'green', self.visio, 1)
 
     def position(self):
+        """Расчёёт позиции миникарты"""
         x1 = 3
         x2 = self.rate * self.count_x
         y2 = self.rate * self.count_y
@@ -50,6 +51,7 @@ class MiniMap(object):
         return x, y
 
     def visio_pos(self):
+        """Поле зрения"""
         w = self.rate * (self.size[0] / self.count_x)
         h = self.rate * (self.size[1] / self.count_x)
         x = self.hero[0] - (self.rate * (self.size[0] / self.count_x)) + (0.5 * w)
