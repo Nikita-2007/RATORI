@@ -1,6 +1,7 @@
 import pygame as pg
 
 class Hero(object):
+
     _atlas_ = pg.image.load("images\Hero.png")
     _rate_ = 64
 
@@ -14,6 +15,7 @@ class Hero(object):
         self.row = 0
         self.col = 0
         self.step = 0
+        self.sound = pg.mixer.Sound("sounds\sound.wav")
         self.speed = 1
         self.image = self.tile_atlas[self.row][self.col]
 
@@ -51,7 +53,7 @@ class Hero(object):
         if self.step == 7:
             self.row += 1
             self.step = 0
-            pg.mixer.Sound.play(pg.mixer.Sound("sounds\sound.wav"))
+            pg.mixer.Sound.play(self.sound)
         self.step += self.speed
         if self.row >= 4:
             self.row = 1

@@ -3,6 +3,7 @@ from modules.ground.Ground import Ground
 from modules.interface.Interface import Interface
 from modules.unit.Hero import Hero
 from modules.unit.Enemy import Enemy
+from modules.unit.Gangster import Gangster
 
 
 class Game(object):
@@ -13,6 +14,7 @@ class Game(object):
         self.ground = Ground(self.size)
         self.hero = Hero(self.size)
         self.enemy = Enemy(self.size)
+        self.gangster = Gangster(self.size)
         self.interface = Interface(self.size)
         self.hero.rect.center = self.position(size)
         self.turn = 'stop'
@@ -47,17 +49,21 @@ class Game(object):
             self.turn = 'stop'
 
         self.ground.update(self.size, self.turn, g)
-        self.enemy.update(self.size)
         self.hero.update(self.turn)
+        self.gangster.update(self.turn)
+        self.enemy.update(self.size)
+
         hero = self.ground.point_x, self.ground.point_y
         self.interface.update(size, hero)
 
     def draw(self, g):
         """Отрисовка"""
         self.ground.draw(g)
-        self.interface.draw(g)
-        self.hero.draw(g)
+
         self.enemy.draw(g)
+        self.gangster.draw(g)
+        self.hero.draw(g)
+        self.interface.draw(g)
 
     def position(self, size):
         """Определение позиции"""

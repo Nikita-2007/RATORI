@@ -3,6 +3,7 @@ import random as r
 
 
 class Enemy(object):
+
     _atlas_ = pg.image.load("images\Enemy.png")
     _rate_ = 64
 
