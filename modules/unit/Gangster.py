@@ -9,6 +9,7 @@ class Gangster(object):
 
     def __init__(self, size):
         """Конструктор"""
+        self.size = size
         self.rate_x = 160
         self.rate_y = 130
         self.tile_atlas = []
@@ -18,12 +19,10 @@ class Gangster(object):
         self.col = 0
         self.unit_turn = 8
         self.image = self.tile_atlas[self.row][self.col]
-        self.point_x, self.point_y = (r(200, 600)), (r(200, 400))
+        self.point_x, self.point_y = (r(self.size[0] // 4, self.size[0] // 4 * 3)), (r(self.size[1] // 4, self.size[1] // 4 * 3))
         self.rect = pg.Rect(self.point_x, self.point_y, self.rate_x, self.rate_y)
         self.scroll_line = 3
         self.scroll = round(self.scroll_line / 1.4)
-        self.unit_speed_line = 2
-        self.unit_speed = round(self.unit_speed_line / 1.4)
         self.time_move = 60
 
     def update(self, turn):
@@ -38,7 +37,6 @@ class Gangster(object):
         else:
             self.col = self.unit_turn
             self.image = self.select()
-        self.rect.x, self.rect.y = self.move_unit()
 
     def draw(self, g):
         """Отрисовка"""
@@ -67,29 +65,6 @@ class Gangster(object):
         elif turn == 'up':
             self.point_y += self.scroll_line
 
-        return self.point_x, self.point_y
-
-    def move_unit(self):
-        if self.unit_turn == 0:
-            self.point_y += self.unit_speed_line
-        elif self.unit_turn == 1:
-            self.point_x += self.unit_speed
-            self.point_y += self.unit_speed
-        elif self.unit_turn == 2:
-            self.point_x += self.unit_speed_line
-        elif self.unit_turn == 3:
-            self.point_x += self.unit_speed
-            self.point_y -= self.unit_speed
-        elif self.unit_turn == 4:
-            self.point_y -= self.unit_speed_line
-        elif self.unit_turn == 5:
-            self.point_x -= self.unit_speed
-            self.point_y -= self.unit_speed
-        elif self.unit_turn == 6:
-            self.point_x -= self.unit_speed_line
-        elif self.unit_turn == 7:
-            self.point_x -= self.unit_speed
-            self.point_y += self.unit_speed
         return self.point_x, self.point_y
 
     def select(self):

@@ -5,7 +5,7 @@ class Hero(object):
     _atlas_ = pg.image.load("images\Hero.png")
     _rate_ = 64
 
-    def __init__(self, size):
+    def __init__(self):
         """Конструктор"""
         pg.init()
         self.rate = self._rate_

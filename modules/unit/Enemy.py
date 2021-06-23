@@ -7,10 +7,9 @@ class Enemy(object):
     _atlas_ = pg.image.load("images\Enemy.png")
     _rate_ = 64
 
-    def __init__(self, size):
+    def __init__(self):
         """Конструктор"""
         pg.init()
-        self.size = size
         self.rate = self._rate_
         self.rect = pg.Rect(0, 0, self.rate, self.rate)
         self.tile_atlas = []
@@ -24,7 +23,7 @@ class Enemy(object):
         self.random_target_x = 0
         self.random_target_y = 0
 
-    def update(self, size):
+    def update(self):
         """Обновление"""
         self.select()
 
