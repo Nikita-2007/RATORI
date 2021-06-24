@@ -68,6 +68,6 @@ class Hero(object):
             for col in range(atlas.get_width() // rate):
                 rect = (col * rate, row * rate)
                 image = atlas.subsurface(rect, size)
-                image = pg.transform.scale(image, (96, 96))
+                image = pg.transform.scale(image, (112, 112))
                 self.tile_atlas[row].append(image)
         return self.tile_atlas

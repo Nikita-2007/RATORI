@@ -1,5 +1,5 @@
 from modules.unit.Gangster import Gangster
-
+from modules.unit.Сivil import Сivil
 
 class Units(object):
     def __init__(self, size):
@@ -9,6 +9,9 @@ class Units(object):
         self.count = 50
         for i in range(self.count):
             unit = Gangster(self.size)
+            self.list_unit.append(unit)
+        for i in range(self.count):
+            unit = Сivil(self.size)
             self.list_unit.append(unit)
         self.unit_speed_line = 2
         self.unit_speed = round(self.unit_speed_line / 1.4)
