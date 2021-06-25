@@ -2,13 +2,15 @@ from modules.unit.Gangster import Gangster
 from modules.unit.Сivil import Сivil
 
 class Units(object):
+
     def __init__(self, size):
         """Конструктор"""
+        tile_atlas = Gangster.filling()
         self.size = size
         self.list_unit = []
         self.count = 50
         for i in range(self.count):
-            unit = Gangster(self.size)
+            unit = Gangster(self.size, tile_atlas)
             self.list_unit.append(unit)
         for i in range(self.count):
             unit = Сivil(self.size)

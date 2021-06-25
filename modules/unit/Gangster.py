@@ -3,17 +3,30 @@ from random import randint as r
 
 
 class Gangster(object):
-    pg.init()
-    _atlas_ = pg.image.load("images\gangster.png")
-    _rate_ = 64
 
-    def __init__(self, size):
+    @staticmethod
+    def filling():
+        """Заполняет атлас"""
+        pg.init()
+        rate_x = 80
+        rate_y = 65
+        atlas = pg.image.load("images\gangster.png")
+        atlas = pg.transform.scale(atlas, (8*rate_x, 9*rate_y))
+        tile_atlas = []
+        for row in range(atlas.get_height() // rate_y):
+            tile_atlas.append([])
+            for col in range(atlas.get_width() // rate_x):
+                rect = (col * rate_x, row * rate_y)
+                image = atlas.subsurface(rect, (rate_x, rate_y))
+                tile_atlas[row].append(image)
+        return tile_atlas
+
+    def __init__(self, size, tile_atlas):
         """Конструктор"""
         self.size = size
-        self.rate_x = 160
-        self.rate_y = 130
-        self.tile_atlas = []
-        self.tile_atlas = self.filling()
+        self.rate_x = 80
+        self.rate_y = 65
+        self.tile_atlas = tile_atlas
         self.step = 0
         self.row = 6
         self.col = 0
@@ -78,16 +91,3 @@ class Gangster(object):
         else:
             self.step += 20
         return self.tile_atlas[self.row][self.col]
-
-    def filling(self):
-        """Заполняет атлас"""
-        atlas = self._atlas_
-        size = (self.rate_x, self.rate_y)
-        for row in range(atlas.get_height() // self.rate_y):
-            self.tile_atlas.append([])
-            for col in range(atlas.get_width() // self.rate_x):
-                rect = (col * self.rate_x, row * self.rate_y)
-                image = atlas.subsurface(rect, size)
-                image = pg.transform.scale(image, (121, 98))
-                self.tile_atlas[row].append(image)
-        return self.tile_atlas
