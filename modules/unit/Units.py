@@ -5,15 +5,16 @@ class Units(object):
 
     def __init__(self, size):
         """Конструктор"""
-        tile_atlas = Gangster.filling()
+        tile_atlas_Gangster = Gangster.filling()
+        tile_atlas_Сivil = Сivil.filling()
         self.size = size
         self.list_unit = []
         self.count = 50
         for i in range(self.count):
-            unit = Gangster(self.size, tile_atlas)
+            unit = Gangster(self.size, tile_atlas_Gangster)
             self.list_unit.append(unit)
         for i in range(self.count):
-            unit = Сivil(self.size)
+            unit = Сivil(self.size, tile_atlas_Сivil)
             self.list_unit.append(unit)
         self.unit_speed_line = 2
         self.unit_speed = round(self.unit_speed_line / 1.4)

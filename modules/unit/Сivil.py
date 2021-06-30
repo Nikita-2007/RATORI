@@ -4,15 +4,28 @@ from random import randint as r
 
 class Сivil(object):
     pg.init()
-    _atlas_ = pg.image.load("images\Сivil.png")
-    _rate_ = 64
 
-    def __init__(self, size):
+    @staticmethod
+    def filling():
+        """Заполняет атлас"""
+        _atlas_ = pg.image.load("images\Сivil.gif")
+        _rate_ = 35
+        size = (_rate_, _rate_)
+        tile_atlas = []
+        for row in range(8):
+            tile_atlas.append([])
+            for col in range(9):
+                rect = (col * _rate_, row * _rate_)
+                image = _atlas_.subsurface(rect, size)
+                image = pg.transform.scale(image, (72, 72))
+                tile_atlas[row].append(image)
+        return tile_atlas
+
+    def __init__(self, size, tile_atlas):
         """Конструктор"""
-        self.rate = self._rate_
+        self.rate = 35
         self.size = size
-        self.tile_atlas = []
-        self.tile_atlas = self.filling()
+        self.tile_atlas = tile_atlas
         self.row = 0
         self.col = 0
         self.step = 0
@@ -20,7 +33,7 @@ class Сivil(object):
         self.image = self.tile_atlas[self.row][self.col]
         self.point_x, self.point_y = (r(self.size[0] // 4, self.size[0] // 4 * 3)), (r(self.size[1] // 4, self.size[1] // 4 * 3))
         self.rect = pg.Rect(self.point_x, self.point_y, self.rate, self.rate)
-        self.scroll_line = 3
+        self.scroll_line = 1
         self.scroll = round(self.scroll_line / 1.4)
         self.time_move = 60
         self.speed = 1
@@ -35,7 +48,7 @@ class Сivil(object):
         if self.unit_turn > 7:
             self.image = self.tile_atlas[0][0]
         else:
-            self.col = self.unit_turn
+            self.row = self.unit_turn
             self.image = self.select()
 
     def draw(self, g):
@@ -67,26 +80,14 @@ class Сivil(object):
 
         return self.point_x, self.point_y
 
-
     def select(self):
         """Заполнение"""
-        if self.step == 7:
-            self.row += 1
-            self.step = 0
-        self.step += self.speed
-        if self.row >= 4:
-            self.row = 1
+        if self.step > 8:
+            if self.col > 7:
+                self.col = 0
+            else:
+                self.col += 1
+                self.step = 0
+        else:
+            self.step += self.speed
         return self.tile_atlas[self.row][self.col]
-
-    def filling(self):
-        """Заполняет атлас"""
-        atlas = self._atlas_
-        size = (self.rate, self.rate)
-        for row in range(atlas.get_height() // self.rate):
-            self.tile_atlas.append([])
-            for col in range(atlas.get_width() // self.rate):
-                rect = (col * self.rate, row * self.rate)
-                image = atlas.subsurface(rect, size)
-                image = pg.transform.scale(image, (96, 96))
-                self.tile_atlas[row].append(image)
-        return self.tile_atlas
