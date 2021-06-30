@@ -8,7 +8,7 @@ class Сivil(object):
     @staticmethod
     def filling():
         """Заполняет атлас"""
-        _atlas_ = pg.image.load("images\Сivil.gif")
+        _atlas_ = pg.image.load("images\Сivil.png")
         _rate_ = 35
         size = (_rate_, _rate_)
         tile_atlas = []
@@ -33,7 +33,7 @@ class Сivil(object):
         self.image = self.tile_atlas[self.row][self.col]
         self.point_x, self.point_y = (r(self.size[0] // 4, self.size[0] // 4 * 3)), (r(self.size[1] // 4, self.size[1] // 4 * 3))
         self.rect = pg.Rect(self.point_x, self.point_y, self.rate, self.rate)
-        self.scroll_line = 1
+        self.scroll_line = 3
         self.scroll = round(self.scroll_line / 1.4)
         self.time_move = 60
         self.speed = 1
