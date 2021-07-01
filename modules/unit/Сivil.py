@@ -29,6 +29,7 @@ class Сivil(object):
         self.row = 0
         self.col = 0
         self.step = 0
+        self.step = 0
         self.unit_turn = 8
         self.image = self.tile_atlas[self.row][self.col]
         self.point_x, self.point_y = (r(self.size[0] // 4, self.size[0] // 4 * 3)), (r(self.size[1] // 4, self.size[1] // 4 * 3))
