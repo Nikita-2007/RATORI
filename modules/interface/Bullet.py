@@ -35,7 +35,6 @@ class Bullet(object):
 
 
     def Shot(self):
-        pg.mixer.Sound.play(self.sound_shots)
         self.step = 0
         if self.bullet > 0:
             pg.mixer.Sound.play(self.sound_shots)
