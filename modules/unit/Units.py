@@ -1,5 +1,7 @@
 from modules.unit.Gangster import Gangster
 from modules.unit.Сivil import Сivil
+from modules.unit.Cat import Cat
+from modules.unit.Adapter import Adapter
 
 class Units(object):
 
@@ -7,6 +9,8 @@ class Units(object):
         """Конструктор"""
         tile_atlas_Gangster = Gangster.filling()
         tile_atlas_Сivil = Сivil.filling()
+        tile_atlas_Сat = Cat.filling()
+        tile_atlas_Dog = Adapter.filling()
         self.size = size
         self.list_unit = []
         self.count = 50
@@ -15,6 +19,12 @@ class Units(object):
             self.list_unit.append(unit)
         for i in range(self.count):
             unit = Сivil(self.size, tile_atlas_Сivil)
+            self.list_unit.append(unit)
+        for i in range(self.count):
+            unit = Cat(self.size, tile_atlas_Сat)
+            self.list_unit.append(unit)
+        for i in range(self.count):
+            unit = Adapter(self.size, tile_atlas_Dog)
             self.list_unit.append(unit)
         self.unit_speed_line = 2
         self.unit_speed = round(self.unit_speed_line / 1.4)

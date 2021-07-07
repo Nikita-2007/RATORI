@@ -17,6 +17,7 @@ class Interface(object):
         self.minimap.update(hero)
         self.bullet.update(size)
         self.score.update(size)
+        self.life.update()
 
     def draw(self, g):
         """Отрисовка"""

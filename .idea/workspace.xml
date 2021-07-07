@@ -26,8 +26,8 @@
       <list>
         <option value="HTML File" />
         <option value="Python Class" />
-        <option value="Python Script" />
         <option value="MyPythonFile" />
+        <option value="Python Script" />
       </list>
     </option>
   </component>
