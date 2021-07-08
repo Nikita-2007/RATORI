@@ -37,19 +37,23 @@ class Gangster(object):
         self.scroll_line = 3
         self.scroll = round(self.scroll_line / 1.4)
         self.time_move = 60
+        self.arrest = False
 
     def update(self, turn):
         """Обновление"""
         self.rect.x, self.rect.y = self.pos_unit(turn)
-        if self.time_move < 1:
-            self.unit_turn = r(0, 10)
-            self.time_move = r(80, 160)
-        self.time_move -= 1
-        if self.unit_turn > 7:
-            self.image = self.tile_atlas[6][0]
+        if not self.arrest:
+            if self.time_move < 1:
+                self.unit_turn = r(0, 10)
+                self.time_move = r(80, 160)
+            self.time_move -= 1
+            if self.unit_turn > 7:
+                self.image = self.tile_atlas[6][0]
+            else:
+                self.col = self.unit_turn
+                self.image = self.select()
         else:
-            self.col = self.unit_turn
-            self.image = self.select()
+            self.image = self.tile_atlas[8][self.col]
 
     def draw(self, g):
         """Отрисовка"""
