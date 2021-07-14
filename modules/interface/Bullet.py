@@ -12,7 +12,7 @@ class Bullet(object):
         self.sound_reload = pg.mixer.Sound("sounds\Reload.mp3")
         self.sound_shots = pg.mixer.Sound("sounds\Shots.mp3")
         self.sound_shots2 = pg.mixer.Sound("sounds\Shots2.mp3")
-        self.step = 0
+        self.step = 00
 
     def update(self, size):
         """Обновление"""

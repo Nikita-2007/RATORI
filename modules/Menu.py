@@ -1,12 +1,15 @@
 import pygame as pg
 from modules.menu.Button import Button
+from modules.menu.Save import Save
+
 class Menu(object):
 
-    button_name = ['Start', 'LoadGame', 'Option', 'Return', 'Language ', 'Respawn', 'Exit to Mneu', 'Exit']
+    button_name = ['Start', 'LoadGame', 'Option', 'Return', 'SaveGame ', 'Respawn', 'More game', 'Exit']
 
     def __init__(self, size):
         '''MENU'''
         self.size = size
+        self.save = Save()
         self.menu_state = True
         self.list_button = []
         for i in range (8):
@@ -54,12 +57,15 @@ class Menu(object):
             if button_name == self.button_name[0]:
                 self.menu_state = not self.menu_state
             if button_name == self.button_name[1]:
+                value = self.save.load_data()
+                print(value)
                 print("Нажата кнопка", button_name)
             if button_name == self.button_name[2]:
                 print("Нажата кнопка", button_name)
             if button_name == self.button_name[3]:
                 print("Нажата кнопка", button_name)
             if button_name == self.button_name[4]:
+                self.save.save_data(12)
                 print("Нажата кнопка", button_name)
             if button_name == self.button_name[5]:
                 print("Нажата кнопка", button_name)

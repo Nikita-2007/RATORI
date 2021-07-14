@@ -2,7 +2,6 @@ from modules.unit.Gangster import Gangster
 from modules.unit.Сivil import Сivil
 from modules.unit.Cat import Cat
 from modules.unit.Adapter import Adapter
-import pygame as pg
 
 class Units(object):
 
