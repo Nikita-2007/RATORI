@@ -1,4 +1,5 @@
 import pygame as pg
+from modules.unit.Shot import Shot
 
 class Bullet(object):
     """Пули"""
@@ -13,6 +14,7 @@ class Bullet(object):
         self.sound_shots = pg.mixer.Sound("sounds\Shots.mp3")
         self.sound_shots2 = pg.mixer.Sound("sounds\Shots2.mp3")
         self.step = 00
+        self.shot = Shot(self.size)
 
     def update(self, size):
         """Обновление"""
@@ -39,6 +41,7 @@ class Bullet(object):
         if self.bullet > 0:
             pg.mixer.Sound.play(self.sound_shots)
             self.bullet -= 1
+            self.shot.Shot()
         else:
             pg.mixer.Sound.play(self.sound_shots2)
             self.bullet = 0

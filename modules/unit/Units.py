@@ -15,7 +15,7 @@ class Units(object):
         self.size = size
         self.list_unit = []
         self.list_shot = []
-        self.list_shot.append(Shot())
+        self.list_shot.append(Shot(self.size))
         self.count = 50
         for i in range(self.count):
             unit = Gangster(self.size, self.tile_atlas_Gangster)
@@ -28,7 +28,7 @@ class Units(object):
             self.list_unit.append(unit)
         for i in range(self.count):
             unit = Adapter(self.size, self.tile_atlas_Dog)
-            self.list_unit.append(unit)
+            #self.list_unit.append(unit)
         self.unit_speed_line = 2
         self.unit_speed = round(self.unit_speed_line / 1.4)
 
