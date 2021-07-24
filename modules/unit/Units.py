@@ -15,7 +15,6 @@ class Units(object):
         self.size = size
         self.list_unit = []
         self.list_shot = []
-        self.list_shot.append(Shot(self.size))
         self.count = 50
         for i in range(self.count):
             unit = Gangster(self.size, self.tile_atlas_Gangster)
@@ -45,7 +44,6 @@ class Units(object):
         for shot in self.list_shot:
             shot.point_x, shot.point_y = self.move_unit(shot)
             shot.update(turn)
-
 
     def draw(self, g):
         """Отрисовка"""
@@ -78,3 +76,7 @@ class Units(object):
             unit.point_y += self.unit_speed
 
         return unit.point_x, unit.point_y
+
+    def add_shot(self, turn):
+        shot = Shot(self.size, turn)
+        self.list_shot.append(shot)

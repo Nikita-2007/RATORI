@@ -46,6 +46,14 @@ class Game(object):
         else:
             self.turn = 'stop'
 
+        #Список клика мышы
+        keysM = pg.mouse.get_pressed()
+        if keysM[0]:
+            self.units.add_shot(self.turn)
+        if keys[pg.K_r]:
+            #self.Reload()
+            pass
+
         self.units.update(self.turn)
         self.ground.update(self.size, self.turn, g)
         hero = self.ground.point_x, self.ground.point_y
