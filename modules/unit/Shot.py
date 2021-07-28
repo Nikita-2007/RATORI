@@ -16,6 +16,7 @@ class Shot(Abstract):
         self.step = 0
         self.font = pg.font.Font(None, 36)
         self.text = self.font.render(str(self.bullets), True, 'Black')
+        self.time_del = 210
 
     def update(self, turn):
         """Обновление"""
@@ -67,3 +68,6 @@ class Shot(Abstract):
         self.step = 0
         self.bullets = 7
         self.update(self.size)
+
+    def __del__(self):
+        pass

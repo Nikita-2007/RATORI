@@ -16,6 +16,7 @@ class Units(object):
         self.list_unit = []
         self.list_shot = []
         self.count = 50
+        self.time = 0
         for i in range(self.count):
             unit = Gangster(self.size, self.tile_atlas_Gangster)
             self.list_unit.append(unit)
@@ -41,9 +42,13 @@ class Units(object):
                 unit.unit_turn = 8
             unit.update(turn)
 
-        for shot in self.list_shot:
-            shot.point_x, shot.point_y = self.move_unit(shot)
-            shot.update(turn)
+        for i in range(len(self.list_shot)):
+            self.list_shot[i].point_x, self.list_shot[i].point_y = self.move_unit(self.list_shot[i])
+            self.list_shot[i].time_del -= 1
+            if self.list_shot[i].time_del <= 0:
+                del self.list_shot[i]
+                break
+            self.list_shot[i].update(turn)
 
     def draw(self, g):
         """Отрисовка"""
